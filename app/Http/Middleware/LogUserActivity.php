@@ -16,13 +16,43 @@ class LogUserActivity
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Skip logging untuk beberapa route
+        $skipRoutes = [
+            'livewire.*',
+            'filament.*',
+            'horizon.*',
+            'telescope.*',
+            'debugbar.*',
+            'activity-logs.*' // Skip logging untuk activity logs sendiri
+        ];
+
+        foreach ($skipRoutes as $route) {
+            if ($request->routeIs($route)) {
+                return $next($request);
+            }
+        }
+
         if (Auth::check()) {
             $user = Auth::user();
             $routeName = $request->route()->getName();
             $method = $request->method();
             $path = $request->path();
             $ip = $request->ip();
+            $userAgent = $request->header('User-Agent');
 
+            // Tentukan log name berdasarkan route
+            $logName = 'default';
+            if (str_contains($routeName, 'characters')) {
+                $logName = 'characters';
+            } elseif (str_contains($routeName, 'programs')) {
+                $logName = 'programs';
+            } elseif (str_contains($routeName, 'users')) {
+                $logName = 'users';
+            } elseif (str_contains($routeName, 'profile')) {
+                $logName = 'profile';
+            }
+
+            // Log activity
             activity()
                 ->causedBy($user)
                 ->withProperties([
@@ -30,9 +60,12 @@ class LogUserActivity
                     'method' => $method,
                     'path' => $path,
                     'ip' => $ip,
-                    'user_agent' => $request->header('User-Agent'),
+                    'user_agent' => $userAgent,
+                    'url' => $request->fullUrl(),
+                    'referer' => $request->header('referer'),
                 ])
-                ->log('User activity');
+                ->useLog($logName)
+                ->log('User visited ' . $path);
         }
 
         return $next($request);

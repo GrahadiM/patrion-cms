@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('image')->nullable();
             $table->string('trailer')->nullable();
-            $table->enum('platform', ['cinema', 'tv', 'streaming', 'youtube', 'game'])->default('streaming');
-            $table->enum('status', ['draft', 'upcoming', 'ongoing', 'completed'])->default('draft');
+            $table->enum('platform', ['cinema', 'tv', 'streaming', 'youtube', 'game', 'ott', 'digital', 'podcast'])->default('streaming');
+            $table->enum('status', ['draft', 'upcoming', 'ongoing', 'completed', 'production', 'released'])->default('draft');
             $table->string('release_date')->nullable();
             $table->string('duration')->nullable();
             $table->string('rating')->nullable();

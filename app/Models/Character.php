@@ -13,36 +13,44 @@ class Character extends Model
 {
     use HasFactory, SoftDeletes, LogsActivity;
 
-    protected $fillable = [
-        'name',
-        'slug',
-        'full_name',
-        'region',
-        'philosophy',
-        'height',
-        'weight',
-        'artifact',
-        'power',
-        'island',
-        'origin',
-        'dna',
-        'attitude',
-        'character',
-        'colors',
-        'color_names',
-        'image',
-        'thumbnail',
-        'video',
-        'description',
-        'status',
-        'order',
-    ];
+    protected $table = 'characters';
+    protected $guarded = ['id'];
+
+    // protected $fillable = [
+    //     'name',
+    //     'slug',
+    //     'full_name',
+    //     'region',
+    //     'philosophy',
+    //     'height',
+    //     'weight',
+    //     'artifact',
+    //     'power',
+    //     'island',
+    //     'origin',
+    //     'dna',
+    //     'attitude',
+    //     'character',
+    //     'colors',
+    //     'color_names',
+    //     'image',
+    //     'thumbnail',
+    //     'video',
+    //     'description',
+    //     'status',
+    //     'order',
+    // ];
 
     protected $casts = [
         'colors' => 'array',
         'color_names' => 'array',
         'status' => 'string',
     ];
+
+    public function programs()
+    {
+        return $this->belongsToMany(Program::class);
+    }
 
     public function getActivitylogOptions(): LogOptions
     {
@@ -51,6 +59,11 @@ class Character extends Model
             ->logOnlyDirty()
             ->setDescriptionForEvent(fn(string $eventName) => "Character {$this->name} {$eventName}")
             ->useLogName('characters');
+    }
+
+    public function activities()
+    {
+        return $this->morphMany(\Spatie\Activitylog\Models\Activity::class, 'subject');
     }
 
     public function scopePublished($query)

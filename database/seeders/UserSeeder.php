@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin Patrion',
             'email' => 'admin@example.com',
             'phone' => '+6281234567890',
-            'photo' => 'assets/images/admin/default-avatar.png',
+            'photo' => 'users/admin.webp',
             'status' => 'active',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),

@@ -8,4 +8,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '$': 'jquery',
+            'jQuery': 'jquery',
+        }
+    },
+    build: {
+        rollupOptions: {
+            external: ['jquery'],
+        }
+    }
 });

@@ -1,3 +1,50 @@
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* DataTables styling - IMPORT HARUS DI AWAL */
+@import 'datatables.net-dt';
+@import 'datatables.net-responsive-dt';
+@import 'datatables.net-buttons-dt';
+
+/* Custom DataTables styling untuk Tailwind */
+.dataTables_wrapper {
+    @apply w-full;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    @apply border border-gray-300 rounded px-2 py-1;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    @apply border border-gray-300 rounded px-3 py-1 ml-2;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    @apply px-3 py-1 border border-gray-300 rounded mx-1 hover:bg-gray-100;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    @apply bg-blue-600 text-white border-blue-600;
+}
+
+.dt-buttons {
+    @apply mb-4;
+}
+
+.dt-buttons button {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 mr-2 mb-2;
+}
+
+/* Responsive table */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    @apply bg-blue-600;
+}
+
+/* Custom styles */
+.required:after {
+    content: " *";
+    color: red;
+}

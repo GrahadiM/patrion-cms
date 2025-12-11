@@ -9,20 +9,46 @@
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
-
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
+        <!-- Photo Upload -->
+        <div>
+            <x-input-label for="photo" :value="__('Profile Photo')" />
+            <div class="mt-2 flex items-center space-x-4">
+                @if(Auth::user()->photo)
+                    <img src="{{ asset('storage/' . Auth::user()->photo) }}"
+                         alt="{{ Auth::user()->name }}"
+                         class="w-16 h-16 rounded-full object-cover">
+                @else
+                    <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                    </div>
+                @endif
+
+                <div class="flex-1">
+                    <input id="photo" name="photo" type="file"
+                           class="block w-full text-sm text-gray-500
+                                  file:mr-4 file:py-2 file:px-4
+                                  file:rounded-full file:border-0
+                                  file:text-sm file:font-semibold
+                                  file:bg-blue-50 file:text-blue-700
+                                  hover:file:bg-blue-100"
+                           accept="image/*">
+                    <x-input-error class="mt-2" :messages="$errors->get('photo')" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <!-- Email -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
@@ -45,6 +71,13 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <!-- Phone -->
+        <div>
+            <x-input-label for="phone" :value="__('Phone Number')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" autocomplete="tel" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
 
         <div class="flex items-center gap-4">
