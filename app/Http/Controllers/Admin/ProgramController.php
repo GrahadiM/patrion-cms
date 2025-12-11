@@ -39,7 +39,10 @@ class ProgramController extends Controller
                         'tv' => ['color' => 'red', 'icon' => 'fas fa-tv'],
                         'streaming' => ['color' => 'blue', 'icon' => 'fas fa-play-circle'],
                         'youtube' => ['color' => 'red', 'icon' => 'fab fa-youtube'],
-                        'game' => ['color' => 'green', 'icon' => 'fas fa-gamepad']
+                        'game' => ['color' => 'green', 'icon' => 'fas fa-gamepad'],
+                        'ott' => ['color' => 'indigo', 'icon' => 'fas fa-tv'],
+                        'digital' => ['color' => 'teal', 'icon' => 'fas fa-desktop'],
+                        'podcast' => ['color' => 'pink', 'icon' => 'fas fa-podcast'],
                     ];
 
                     $config = $platformConfig[$program->platform] ?? $platformConfig['streaming'];
@@ -92,7 +95,7 @@ class ProgramController extends Controller
             // 'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'trailer' => 'nullable|mimes:mp4,mov,avi,wmv|max:10240',
-            'platform' => 'required|in:cinema,tv,streaming,youtube,game',
+            'platform' => 'required|in:cinema,tv,streaming,youtube,game,ott,digital,podcast',
             'status' => 'required|in:draft,upcoming,ongoing,completed',
             'release_date' => 'nullable|string|max:100',
             'duration' => 'nullable|string|max:50',
@@ -200,7 +203,7 @@ class ProgramController extends Controller
             // 'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'trailer' => 'nullable|mimes:mp4,mov,avi,wmv|max:10240',
-            'platform' => 'required|in:cinema,tv,streaming,youtube,game',
+            'platform' => 'required|in:cinema,tv,streaming,youtube,game,ott,digital,podcast',
             'status' => 'required|in:draft,upcoming,ongoing,completed',
             'release_date' => 'nullable|string|max:100',
             'duration' => 'nullable|string|max:50',

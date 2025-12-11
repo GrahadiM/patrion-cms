@@ -35,6 +35,9 @@
                         <option value="streaming" {{ old('platform') == 'streaming' ? 'selected' : '' }}>Streaming</option>
                         <option value="youtube" {{ old('platform') == 'youtube' ? 'selected' : '' }}>YouTube</option>
                         <option value="game" {{ old('platform') == 'game' ? 'selected' : '' }}>Game</option>
+                        <option value="ott" {{ old('platform') == 'ott' ? 'selected' : '' }}>OTT</option>
+                        <option value="digital" {{ old('platform') == 'digital' ? 'selected' : '' }}>Digital</option>
+                        <option value="podcast" {{ old('platform') == 'podcast' ? 'selected' : '' }}>Podcast</option>
                     </select>
                 </div>
 
