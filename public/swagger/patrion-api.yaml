@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Patrion API
+  version: 1.0.0
+  description: >
+    API resmi untuk platform PATRION yang menyediakan data karakter, program, dan pencarian global.
+    Basis pengembangan menggunakan Laravel 12 dengan output JSON standar untuk konsumsi frontend HTML/JS.
+
+servers:
+  - url: https://cms.patrion.id/api/v1/public
+    description: Production API
+  - url: http://localhost:8000/api/v1/public
+    description: Local Development Server
+
+tags:
+  - name: Characters
+    description: Endpoint untuk data karakter PATRION
+  - name: Programs
+    description: Endpoint untuk data program (film, series, game, dll.)
+  - name: Search
+    description: Global search endpoint
+
+paths:
+
+  /characters:
+    get:
+      tags: [Characters]
+      summary: List semua karakter publish
+      description: Mengambil data semua karakter dengan status **published**.
+      responses:
+        '200':
+          description: List karakter berhasil diambil
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+
+  /characters/{slug}:
+    get:
+      tags: [Characters]
+      summary: Detail karakter berdasarkan slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detail karakter ditemukan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '404':
+          description: Karakter tidak ditemukan
+
+  /characters/status/{status}:
+    get:
+      tags: [Characters]
+      summary: Filter karakter berdasarkan status
+      parameters:
+        - name: status
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [draft, published]
+      responses:
+        '200':
+          description: Daftar karakter berdasarkan status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+
+  /programs:
+    get:
+      tags: [Programs]
+      summary: List semua program berdasarkan status (released/upcoming/ongoing)
+      responses:
+        '200':
+          description: List program berhasil diambil
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Program'
+
+  /programs/{slug}:
+    get:
+      tags: [Programs]
+      summary: Detail program berdasarkan slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detail program ditemukan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '404':
+          description: Program tidak ditemukan
+
+  /programs/status/{status}:
+    get:
+      tags: [Programs]
+      summary: Filter program berdasarkan status
+      parameters:
+        - name: status
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [draft, upcoming, ongoing, completed, production, released]
+      responses:
+        '200':
+          description: Daftar program berdasarkan status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Program'
+
+  /search:
+    get:
+      tags: [Search]
+      summary: Pencarian global (characters + programs)
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Hasil pencarian
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  characters:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Character'
+                  programs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Program'
+
+components:
+  schemas:
+
+    Character:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        slug: { type: string }
+        full_name: { type: string }
+        region: { type: string }
+        philosophy: { type: string }
+        height: { type: string }
+        weight: { type: string }
+        artifact: { type: string }
+        power: { type: string }
+        island: { type: string }
+        origin: { type: string }
+        dna: { type: string }
+        attitude: { type: string }
+        character: { type: string }
+        colors:
+          type: array
+          items: { type: string }
+        color_names:
+          type: array
+          items: { type: string }
+        image: { type: string }
+        thumbnail: { type: string }
+        video: { type: string }
+        description: { type: string }
+        status: { type: string }
+        order: { type: integer }
+        created_at: { type: string, format: date-time }
+
+    Program:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        slug: { type: string }
+        description: { type: string }
+        synopsis: { type: string }
+        thumbnail: { type: string }
+        image: { type: string }
+        trailer: { type: string }
+        platform: { type: string }
+        platforms:
+          type: array
+          items: { type: string }
+        status: { type: string }
+        release_date: { type: string }
+        duration: { type: string }
+        rating: { type: string }
+        director: { type: string }
+        budget: { type: string }
+        episodes: { type: integer }
+        views: { type: integer }
+        characters:
+          type: array
+          items: { type: string }
+        production:
+          type: object
+        gallery:
+          type: array
+          items: { type: string }
+        order: { type: integer }

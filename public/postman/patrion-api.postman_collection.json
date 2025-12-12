@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Patrion API",
+    "_postman_id": "9b12c010-1111-42df-bf11-222a22b21111",
+    "description": "Postman collection untuk API Patrion (Characters, Programs, Search)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Characters",
+      "item": [
+        {
+          "name": "Get All Characters",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/characters"
+          }
+        },
+        {
+          "name": "Get Character Detail",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/characters/{{slug}}"
+          }
+        },
+        {
+          "name": "Get Characters by Status",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/characters/status/{{status}}"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Programs",
+      "item": [
+        {
+          "name": "Get All Programs",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/programs"
+          }
+        },
+        {
+          "name": "Get Program Detail",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/programs/{{slug}}"
+          }
+        },
+        {
+          "name": "Get Programs by Status",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/programs/status/{{status}}"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Global Search",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/search?q={{query}}"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api/v1"
+    },
+    {
+      "key": "slug",
+      "value": "kunna"
+    },
+    {
+      "key": "status",
+      "value": "published"
+    },
+    {
+      "key": "query",
+      "value": "kunna"
+    }
+  ]
+}

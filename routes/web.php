@@ -14,6 +14,10 @@ use App\Http\Controllers\Admin\ActivityLogController;
 
 Route::get('/', function () { return redirect(route('login')); });
 
+Route::get('/swagger', function () {
+    return file_get_contents(public_path('swagger/index.html'));
+});
+
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['web', LogUserActivity::class])->group(function () {
