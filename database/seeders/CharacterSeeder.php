@@ -215,8 +215,7 @@ class CharacterSeeder extends Seeder
                     'thumbnail' => $data['thumbnail'],
                     'video' => $data['video'],
                     'description' => $data['description'],
-                    'status' => 'draft', // Set semua karakter sebagai draft
-                    'order' => $data['order'],
+                    'status' => $data['status'],
                 ]);
 
                 $this->command->info("Character {$data['name']} created successfully.");
