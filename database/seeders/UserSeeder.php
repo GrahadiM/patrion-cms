@@ -16,21 +16,21 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin Patrion',
-            'email' => 'admin@example.com',
+            'email' => 'admin@patrion.id',
             'phone' => '+6281234567890',
             'photo' => 'users/admin.webp',
             'status' => 'active',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('@CMSpatrion123!@#'),
             'email_verified_at' => now(),
         ]);
 
         User::create([
             'name' => 'Editor Patrion',
-            'email' => 'editor@example.com',
+            'email' => 'editor@patrion.id',
             'phone' => '+6289876543210',
             'photo' => null,
             'status' => 'active',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('@CMSpatrion123!@#'),
             'email_verified_at' => now(),
         ]);
     }
