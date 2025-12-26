@@ -241,7 +241,7 @@ class CharacterSeeder extends Seeder
                     'thumbnail' => $data['thumbnail'],
                     'video' => $data['video'],
                     'description' => $data['description'],
-                    'order' => $data['order'],
+                    'status' => $data['status'],
                 ]);
 
                 $this->command->info("Character {$data['name']} updated successfully.");
