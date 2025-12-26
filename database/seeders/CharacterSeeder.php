@@ -32,7 +32,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-kuna.mp4',
                 'description' => 'KUNNA adalah karakter yang mewakili Jawa Tengah dengan filosofi "Kunanti yang di Tata". Dengan tinggi 178 cm dan berat 77 kg, KUNNA membawa artefak Topeng dan menguasai kekuatan Cahaya. Berasal dari Bantul, Jawa, KUNNA memiliki DNA Raja Jawa dan mewakili karakter Jawa yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 1,
             ],
             'wabu' => [
                 'name' => 'WABU',
@@ -55,7 +54,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-wabu.mp4',
                 'description' => 'WABU adalah karakter yang mewakili Jakarta dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, WABU membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Jakarta, Jawa, WABU memiliki DNA Multi Culture (China) dan mewakili karakter Betawi yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 2,
             ],
             'asta' => [
                 'name' => 'ASTA',
@@ -78,7 +76,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-asta.mp4',
                 'description' => 'ASTA adalah karakter yang mewakili Bali dengan filosofi "Anak Semesta". Dengan tinggi 175 cm dan berat 80 kg, ASTA membawa artefak Ikat kepala dan menguasai kekuatan Magnet. Berasal dari Bali, ASTA memiliki DNA Raja Bali dan mewakili karakter Bali yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 3,
             ],
             'taran' => [
                 'name' => 'TARAN',
@@ -101,7 +98,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-taran.mp4',
                 'description' => 'TARAN adalah karakter yang mewakili Sumatera dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, TARAN membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Bukit Tinggi, Sumatera, TARAN memiliki DNA Multi Culture (China) dan mewakili karakter Sumatera yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 4,
             ],
             'sanu' => [
                 'name' => 'SANU',
@@ -124,7 +120,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-sanu.mp4',
                 'description' => 'SANU adalah karakter yang mewakili Sulawesi dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, SANU membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Sulawesi, SANU memiliki DNA Multi Culture (China) dan mewakili karakter Sulawesi yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 5,
             ],
             'kabi' => [
                 'name' => 'KABI',
@@ -147,7 +142,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-kabi.mp4',
                 'description' => 'KABI adalah karakter yang mewakili Papua dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, KABI membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Jayapura, Papua, KABI memiliki DNA Astronesia dan mewakili karakter Papua yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 6,
             ],
             'arun' => [
                 'name' => 'ARUN',
@@ -170,7 +164,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-arun.mp4',
                 'description' => 'ARUN adalah karakter yang mewakili Kalimantan dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, ARUN membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Kalimantan, ARUN memiliki DNA Multi Culture (China) dan mewakili karakter Betawi yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 7,
             ],
             'antis' => [
                 'name' => 'ANTIS',
@@ -193,7 +186,6 @@ class CharacterSeeder extends Seeder
                 'video' => 'characters/videos/patrion-antis.mp4',
                 'description' => 'ANTIS adalah karakter yang mewakili Atlantis dengan filosofi "Warisan Budaya". Dengan tinggi 177 cm dan berat 78 kg, ANTIS membawa artefak Kode Biner dan menguasai kekuatan Digital. Berasal dari Atlantis, ANTIS memiliki DNA Multi Culture (China) dan mewakili karakter Sumatera yang ramah, santun, sabar, ulet, pintar, serta mengutamakan persatuan dan adab.',
                 'status' => 'published',
-                'order' => 8,
             ],
         ];
 
